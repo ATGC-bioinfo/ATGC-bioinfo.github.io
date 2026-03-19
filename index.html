@@ -184,6 +184,7 @@
 
     .name-line {
       display: block;
+      white-space: nowrap;
     }
 
     .name-line.muted {
@@ -612,9 +613,14 @@
       }
 
       h1 {
-        font-size: clamp(2.4rem, 15vw, 4.2rem);
+        font-size: clamp(1.95rem, 11.8vw, 3.15rem);
         margin-top: 22px;
-        line-height: 0.98;
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
+      .name-line + .name-line {
+        margin-top: -0.08em;
       }
 
       .eyebrow {
@@ -633,7 +639,7 @@
       }
 
       .hero-main {
-        padding: 22px 22px 28px;
+        padding: 20px 18px 24px;
       }
 
       .hero-stats {
