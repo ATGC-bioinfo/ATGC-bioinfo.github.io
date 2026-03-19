@@ -1,1 +1,996 @@
-<h1>ATGC-bioinfo Portfolio</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habeebunnisa Dudekula | Bioinformatics Engineer</title>
+  <meta
+    name="description"
+    content="Portfolio of Habeebunnisa Dudekula, a bioinformatics engineer building Nextflow workflows, NGS pipelines, and AI-assisted tooling."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: rgba(255, 252, 245, 0.88);
+      --panel: #fffdf7;
+      --ink: #16161a;
+      --muted: #5d615f;
+      --line: rgba(22, 22, 26, 0.10);
+      --teal: #0d6d6a;
+      --teal-deep: #0a4d4b;
+      --clay: #c8743c;
+      --gold: #c8a34a;
+      --shadow: 0 24px 70px rgba(29, 26, 18, 0.10);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(13, 109, 106, 0.10), transparent 26%),
+        radial-gradient(circle at 100% 10%, rgba(200, 163, 74, 0.14), transparent 22%),
+        linear-gradient(180deg, #fbf9f4 0%, #f1ede2 100%);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(247, 243, 234, 0.78);
+      border-bottom: 1px solid rgba(22, 22, 26, 0.06);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--teal), var(--clay));
+      box-shadow: 0 0 0 6px rgba(13, 109, 106, 0.10);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--teal);
+    }
+
+    .hero {
+      padding: 56px 0 30px;
+    }
+
+    .hero-shell {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .hero-main,
+    .hero-side,
+    .section-card,
+    .project-card,
+    .mini-card,
+    .timeline-item,
+    .footer-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-main {
+      position: relative;
+      overflow: hidden;
+      padding: 28px 40px 40px;
+      background:
+        linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(255, 249, 239, 0.88)),
+        radial-gradient(circle at right bottom, rgba(13, 109, 106, 0.12), transparent 32%);
+    }
+
+    .hero-main::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -60px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 163, 74, 0.22), transparent 60%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(13, 109, 106, 0.10);
+      color: var(--teal-deep);
+      font-size: 0.79rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.06;
+    }
+
+    h1, .section-title, .project-card h3, .timeline-role {
+      font-family: "Fraunces", Georgia, serif;
+      letter-spacing: -0.03em;
+    }
+
+    h1 {
+      margin-top: 28px;
+      font-size: clamp(3.6rem, 10vw, 7.8rem);
+      max-width: none;
+    }
+
+    .name-line {
+      display: block;
+    }
+
+    .name-line.muted {
+      color: rgba(22, 22, 26, 0.28);
+    }
+
+    .hero-meta {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(220px, 430px) minmax(260px, 1fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .role-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .role-line::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: var(--ink);
+    }
+
+    .hero-lead {
+      margin: 0;
+      max-width: 40ch;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      position: absolute;
+      top: 118px;
+      right: 34px;
+      display: grid;
+      gap: 22px;
+      margin-top: 0;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      color: rgba(22, 22, 26, 0.52);
+      border: 1px solid rgba(22, 22, 26, 0.08);
+      background: rgba(255, 255, 255, 0.56);
+      transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+
+    .icon-link:hover,
+    .icon-link:focus-visible {
+      transform: translateY(-1px);
+      color: var(--ink);
+      border-color: rgba(22, 22, 26, 0.2);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid rgba(22, 22, 26, 0.08);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      letter-spacing: -0.04em;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-side {
+      display: none;
+    }
+
+    .side-block h2 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .side-block p,
+    .side-block li,
+    .side-block a {
+      color: var(--muted);
+    }
+
+    .side-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    main section {
+      padding: 20px 0;
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 18px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 3vw, 3rem);
+    }
+
+    .section-note {
+      color: var(--muted);
+      max-width: 64ch;
+      padding-top: 8px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+    }
+
+    .section-card {
+      padding: 28px;
+    }
+
+    .section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .mini-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .mini-card {
+      padding: 22px;
+      background: var(--panel);
+    }
+
+    .mini-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .projects-layout {
+      display: grid;
+      gap: 18px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 24px;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,250,242,0.88));
+    }
+
+    .project-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      font-size: clamp(1.65rem, 2.1vw, 2.2rem);
+      margin-bottom: 10px;
+    }
+
+    .project-summary {
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 68ch;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .chip {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(13, 109, 106, 0.08);
+      color: #244340;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .project-link {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .project-link:hover,
+    .project-link:focus-visible {
+      color: var(--teal);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 22px;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.90), rgba(255,252,245,0.85));
+    }
+
+    .timeline-date {
+      color: var(--teal);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .timeline-role {
+      font-size: 2rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-company {
+      margin-bottom: 14px;
+      color: var(--clay);
+      font-weight: 800;
+    }
+
+    .timeline-item ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .timeline-item li + li {
+      margin-top: 8px;
+    }
+
+    .skills-grid,
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skills-grid .mini-card ul,
+    .education-grid .mini-card p {
+      margin: 0;
+    }
+
+    .skills-grid ul {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 30px 0 52px;
+    }
+
+    .contact-shell {
+      padding: 34px 28px 28px;
+    }
+
+    .contact-kicker {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #9aa2b3;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .contact-kicker::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: #c6ccd7;
+    }
+
+    .contact-title {
+      margin-top: 14px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      letter-spacing: -0.04em;
+    }
+
+    .contact-title span {
+      color: #a8afbf;
+    }
+
+    .contact-rows {
+      margin-top: 30px;
+      border-top: 1px solid rgba(22, 22, 26, 0.08);
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 72px 160px 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 0;
+      border-bottom: 1px solid rgba(22, 22, 26, 0.08);
+    }
+
+    .contact-row-index {
+      color: #c6ccd7;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .contact-row-label {
+      font-size: 1.05rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contact-row-value {
+      color: var(--muted);
+      font-size: 1rem;
+      word-break: break-word;
+      cursor: pointer;
+    }
+
+    .copy-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 1px solid rgba(22, 22, 26, 0.10);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--ink);
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .copy-button:hover,
+    .copy-button:focus-visible {
+      border-color: rgba(22, 22, 26, 0.24);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-shell,
+      .about-grid,
+      .project-card,
+      .timeline-item,
+      .section-header,
+      .skills-grid,
+      .education-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main,
+      .section-card,
+      .project-card,
+      .timeline-item,
+      .mini-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        padding-top: 34px;
+      }
+
+      .hero-actions {
+        position: static;
+        display: flex;
+        margin-top: 24px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact-row {
+        grid-template-columns: 52px 1fr;
+      }
+
+      .contact-row-value,
+      .copy-button {
+        grid-column: 2;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        ATGC-bioinfo
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-shell">
+        <article class="hero-main">
+          <div class="eyebrow">Bioinformatics Engineer • Nextflow • NGS Pipelines</div>
+          <h1>
+            <span class="name-line">Habeebunnisa</span>
+            <span class="name-line muted">Dudekula</span>
+          </h1>
+          <div class="hero-actions">
+            <a class="icon-link" href="https://www.linkedin.com/in/habeebunnisa-dudekula-ab4259213/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M6.94 8.5H3.56V20h3.38V8.5ZM5.25 3A1.96 1.96 0 0 0 3.3 4.96c0 1.08.87 1.95 1.92 1.95h.03A1.95 1.95 0 1 0 5.25 3ZM20.7 12.84c0-3.46-1.84-5.07-4.3-5.07-1.98 0-2.86 1.1-3.36 1.86V8.5H9.66c.04.75 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.12-.92.27-.68.88-1.38 1.9-1.38 1.35 0 1.9 1.04 1.9 2.56V20H20.7v-7.16Z"/>
+              </svg>
+            </a>
+            <a class="icon-link" href="https://github.com/ATGC-bioinfo" target="_blank" rel="noreferrer" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5C5.65.5.5 5.65.5 12A11.5 11.5 0 0 0 8.36 22.93c.57.1.78-.25.78-.56v-2.16c-3.2.7-3.87-1.36-3.87-1.36-.52-1.3-1.28-1.65-1.28-1.65-1.05-.7.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.03 1.74 2.69 1.24 3.34.95.1-.74.4-1.24.73-1.52-2.55-.28-5.23-1.26-5.23-5.63 0-1.24.45-2.25 1.17-3.05-.12-.29-.51-1.45.11-3.02 0 0 .96-.3 3.15 1.16A11.1 11.1 0 0 1 12 6.32c.98 0 1.96.13 2.88.38 2.18-1.47 3.14-1.16 3.14-1.16.63 1.57.24 2.73.12 3.02.73.8 1.17 1.8 1.17 3.05 0 4.38-2.69 5.35-5.25 5.62.41.35.78 1.02.78 2.07v3.07c0 .31.2.67.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="hero-meta">
+            <div class="role-line">Biologist &amp; Developer</div>
+            <p class="hero-lead">
+              Building reproducible bioinformatics workflows, scalable NGS pipelines, and practical local AI tools for workflow generation and debugging.
+            </p>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>Nextflow</strong>
+              <span>DSL2 workflow design, debugging, and production support</span>
+            </div>
+            <div class="stat">
+              <strong>NGS</strong>
+              <span>WGS, Exome, transcriptomics, metagenomics, single-cell</span>
+            </div>
+            <div class="stat">
+              <strong>AI Tools</strong>
+              <span>Local LLM and retrieval workflows for developer support</span>
+            </div>
+          </div>
+        </article>
+
+        <aside class="hero-side" id="contact">
+          <section class="side-block">
+            <h2>Current focus</h2>
+            <ul class="side-list">
+              <li>Maintaining and optimizing Nextflow-based NGS workflows</li>
+              <li>Designing transcriptomics and clinical genomics pipelines</li>
+              <li>Building local AI-assisted tooling for workflow generation and debugging</li>
+            </ul>
+          </section>
+          <section class="side-block">
+            <h2>Based on real delivery</h2>
+            <p>
+              I work with practical scientific systems, not mock portfolio projects. The work shown here reflects production bioinformatics,
+              reproducible analysis, and engineering choices shaped by real datasets and workflow constraints.
+            </p>
+          </section>
+          <section class="side-block">
+            <h2>Reach me</h2>
+            <ul class="side-list">
+              <li><a href="mailto:dudekulahabeebunnisa669@gmail.com">dudekulahabeebunnisa669@gmail.com</a></li>
+              <li><a href="tel:+917989136753">+91 7989136753</a></li>
+              <li><a href="https://github.com/ATGC-bioinfo" target="_blank" rel="noreferrer">github.com/ATGC-bioinfo</a></li>
+            </ul>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">About</h2>
+          <p class="section-note">
+            I focus on turning computational biology requirements into clean, reproducible systems. That includes workflow design,
+            data processing optimization, analysis reporting, and increasingly, intelligent tooling that helps scientists and engineers
+            build and debug pipelines faster.
+          </p>
+        </div>
+        <div class="about-grid">
+          <article class="section-card">
+            <p>
+              My background combines biotechnology training with hands-on engineering in bioinformatics. I have worked on transcriptomics,
+              WGS, Exome, metagenome analysis, and single-cell workflows using Nextflow, Python, R, Docker, and Bash-based automation.
+            </p>
+            <p>
+              I am especially interested in workflow infrastructure that is both scientifically useful and operationally maintainable:
+              modular pipelines, reproducible environments, faster debugging loops, and systems that can scale with project complexity.
+            </p>
+          </article>
+          <div class="mini-grid">
+            <article class="mini-card">
+              <h3>What I build</h3>
+              <p>NGS pipelines, analysis workflows, automation layers, internal tooling, and retrieval-assisted local AI systems.</p>
+            </article>
+            <article class="mini-card">
+              <h3>What I value</h3>
+              <p>Reproducibility, clarity, scientific usefulness, maintainable code, and workflows that are practical for teams to operate.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-note">
+            Portfolio work centered on bioinformatics engineering, workflow automation, and local-first AI tooling.
+          </p>
+        </div>
+        <div class="projects-layout">
+          <article class="project-card">
+            <div>
+              <span class="project-label">Featured build</span>
+            </div>
+            <div>
+              <h3>nextflow-llm-cli</h3>
+              <p class="project-summary">
+                A local-only CLI for Nextflow workflow generation, error debugging, explanation, retrieval, and evaluation.
+                Built for resource-constrained systems using Ollama, local indexing, lexical retrieval, and structured eval cases.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Python</span>
+                <span class="chip">Ollama</span>
+                <span class="chip">Nextflow DSL2</span>
+                <span class="chip">Retrieval</span>
+                <span class="chip">CLI</span>
+              </div>
+              <a class="project-link" href="https://github.com/ATGC-bioinfo/nextflow-llm-cli" target="_blank" rel="noreferrer">Open repository</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <span class="project-label">Production work</span>
+            </div>
+            <div>
+              <h3>Freshwater metagenomics analysis workflow</h3>
+              <p class="project-summary">
+                Reproducible shotgun metagenomics project built around Kraken2, Bracken, Krona, and R-based post-analysis to move from
+                raw Illumina paired-end data to taxonomic profiling, abundance estimation, and visualization.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Kraken2</span>
+                <span class="chip">Bracken</span>
+                <span class="chip">R</span>
+                <span class="chip">Visualization</span>
+              </div>
+              <a class="project-link" href="https://github.com/ATGC-bioinfo/Metagenomics" target="_blank" rel="noreferrer">View project</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div>
+              <span class="project-label">Single-cell</span>
+            </div>
+            <div>
+              <h3>Single-cell RNA-seq analysis pipeline</h3>
+              <p class="project-summary">
+                A Nextflow-based single-cell RNA-seq workflow for count loading, AnnData creation, doublet detection, quality control,
+                clustering, SCVI-based integration, differential expression, and automated cell-type annotation.
+              </p>
+              <div class="chip-row">
+                <span class="chip">Nextflow</span>
+                <span class="chip">Python</span>
+                <span class="chip">Scanpy</span>
+                <span class="chip">SCVI</span>
+                <span class="chip">Single-cell</span>
+              </div>
+              <a class="project-link" href="https://github.com/ATGC-bioinfo/single_cell_Analysis" target="_blank" rel="noreferrer">View project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-note">
+            Roles that shaped my work across scientific analysis, R&amp;D, workflow automation, and technical delivery.
+          </p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">March 2025 — Present</div>
+            <div>
+              <h3 class="timeline-role">Junior Scientific Analyst</h3>
+              <div class="timeline-company">Genotypic Technology</div>
+              <ul>
+                <li>Maintain and optimize Nextflow-based NGS and bioinformatics workflows for reproducibility, scalability, and high performance.</li>
+                <li>Design transcriptomics and clinical genomics pipelines spanning WGS, Exome, metagenome analysis, and single-cell workflows.</li>
+                <li>Contribute to an agentic AI initiative for genomic interpretation support and model-driven decision systems.</li>
+                <li>Use Python, R, FastAPI, and Docker to support workflow automation, analytics, and internal tooling.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <div class="timeline-date">Aug 2023 — March 2025</div>
+            <div>
+              <h3 class="timeline-role">Technical Associate</h3>
+              <div class="timeline-company">Tvam Technologies Pvt Ltd</div>
+              <ul>
+                <li>Worked in R&amp;D for medical devices with emphasis on wearable technology and sensor-focused studies.</li>
+                <li>Contributed to continuous glucose monitoring research and technical documentation.</li>
+                <li>Handled technical content writing and project planning for healthcare-focused initiatives.</li>
+                <li>Supported end-to-end execution from concept framing through implementation planning and market-facing communication.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills</h2>
+          <p class="section-note">
+            The core tools, platforms, and focus areas behind my portfolio work.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <article class="mini-card">
+            <h3>Languages</h3>
+            <ul>
+              <li>Python</li>
+              <li>R</li>
+              <li>Bash / Shell scripting</li>
+              <li>PHP</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </article>
+          <article class="mini-card">
+            <h3>Workflow stack</h3>
+            <ul>
+              <li>Nextflow DSL2</li>
+              <li>Docker</li>
+              <li>Singularity</li>
+              <li>Conda</li>
+            </ul>
+          </article>
+          <article class="mini-card">
+            <h3>Data & APIs</h3>
+            <ul>
+              <li>Pandas, NumPy, SciPy</li>
+              <li>Matplotlib, Seaborn</li>
+              <li>FastAPI</li>
+              <li>Git</li>
+            </ul>
+          </article>
+          <article class="mini-card">
+            <h3>Domain areas</h3>
+            <ul>
+              <li>WGS and Exome analysis</li>
+              <li>Transcriptomics</li>
+              <li>Metagenomics and ITS analysis</li>
+              <li>Single-cell workflows</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <p class="section-note">
+            Academic training supporting my transition into computational biology and bioinformatics engineering.
+          </p>
+        </div>
+        <div class="education-grid">
+          <article class="mini-card">
+            <h3>M.Sc. Biotechnology</h3>
+            <p>Dayananda Sagar University, Karnataka</p>
+            <p>2021 — 2023 • 75%</p>
+          </article>
+          <article class="mini-card">
+            <h3>B.Sc. Botany, Zoology, Chemistry</h3>
+            <p>Sri Krishna Devaraya University, Andhra Pradesh</p>
+            <p>2018 — 2021 • 90%</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-card contact-shell">
+        <div class="contact-kicker">Open for freelance • Available for hire</div>
+        <div class="contact-title">Get In <span>Touch</span></div>
+        <div class="contact-rows">
+          <div class="contact-row">
+            <span class="contact-row-index">01</span>
+            <span class="contact-row-label">Email</span>
+            <span class="contact-row-value" id="email-text" role="button" tabindex="0" aria-label="Copy email address">
+              dudekulahabeebunnisa669@gmail.com
+            </span>
+            <button class="copy-button" type="button" id="copy-email-btn" aria-label="Copy email address">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M16 1H6a2 2 0 0 0-2 2v12h2V3h10V1Zm3 4H10a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Zm0 16H10V7h9v14Z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const copyButton = document.getElementById("copy-email-btn");
+    const emailText = document.getElementById("email-text");
+
+    async function copyEmail() {
+      if (copyButton && emailText) {
+        try {
+          await navigator.clipboard.writeText(emailText.textContent.trim());
+          copyButton.style.color = "#0d6d6a";
+        } catch (error) {
+          copyButton.style.color = "#c8743c";
+        }
+        setTimeout(() => {
+          copyButton.style.color = "";
+        }, 1400);
+      }
+    }
+
+    if (copyButton && emailText) {
+      copyButton.addEventListener("click", copyEmail);
+      emailText.addEventListener("click", copyEmail);
+      emailText.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          copyEmail();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
